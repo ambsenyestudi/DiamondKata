@@ -1,3 +1,3 @@
-# DimondKata
+# DiamondKata
 
-My attempt at [Dimond Coding Dojo](https://codingdojo.org/kata/Diamond/)
+My attempt at [Diamond Coding Dojo](https://codingdojo.org/kata/Diamond/)
