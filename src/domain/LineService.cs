@@ -4,6 +4,7 @@ public class LineService
 {
     private readonly MirroringService _mirroringService;
     private const string ALPHABETH_START = "A";
+    private const string SPACE = " ";
     public LineService(MirroringService mirroringService)
     {
         _mirroringService = mirroringService;
@@ -16,15 +17,17 @@ public class LineService
         var result = string.Empty;
         for (int i = 0; i < delta + 1; i++)
         {
-
-            var newPosition = FigureDelta(letter, upTo) == i
-                ? letter
-                : " ";
+            string newPosition = ToCharacter(letter, upTo, i);
             result += newPosition;
 
         }
         return result;
     }
+
+    private static string ToCharacter(string letter, string upTo, int index) =>
+        FigureDelta(letter, upTo) == index
+                        ? letter
+                        : SPACE;
 
     private static int FigureDelta(string start, string end) =>
         FigureDelta(start[0], end[0]);
