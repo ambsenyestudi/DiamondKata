@@ -6,7 +6,7 @@ public class LetterRepositoryShould
 {
     private readonly LetterRepository _letterRepository = new();
     [Fact]
-    public void PrintsDiamondC()
+    public void GetLettersUpTo()
     {
         Assert.Equal("A", string.Join(",", _letterRepository.GetUpTo("A")));
     }
