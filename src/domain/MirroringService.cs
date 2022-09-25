@@ -3,5 +3,11 @@
 public class MirroringService
 {
     public string Mirror(string line) =>
-        throw new NotImplementedException();
+        line + Reverse(line);
+
+    private string Reverse(string line)
+    {
+        var reversedChars = line.Reverse().Skip(1).ToArray();
+        return new string(reversedChars);
+    }
 }
