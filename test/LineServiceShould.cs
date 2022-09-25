@@ -11,7 +11,7 @@ namespace Diamonds.Test
         [InlineData("C", "C")]
         public void Contains(string input, string expected)
         {
-            Assert.Contains(expected, _lineService.CreateLine(input));
+            Assert.Contains(expected, _lineService.CreateLine(input, input));
         }
 
         [Theory]
