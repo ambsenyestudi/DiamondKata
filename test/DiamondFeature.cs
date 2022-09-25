@@ -5,7 +5,7 @@ namespace Diamonds.Test;
 public class DiamondFeature
 {
     public readonly Diamond _diamond = new Diamond(
-        new LineService(), new LetterRepository());
+        new LineService(new MirroringService()), new LetterRepository());
 
     [Fact]
     public void PrintsDiamondC()
