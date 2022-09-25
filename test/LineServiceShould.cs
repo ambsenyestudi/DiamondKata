@@ -21,5 +21,13 @@ namespace Diamonds.Test
         {
             Assert.Equal(expected, _lineService.CreateLine(input, upTo).First().ToString());
         }
+
+        [Theory]
+        [InlineData("A", " ", "A\n")]
+        [InlineData("C", "C", "C\n")]
+        public void EndLineWith(string input, string expected, string upTo)
+        {
+            Assert.Equal(expected, _lineService.CreateLine(input, upTo).Last().ToString());
+        }
     }
 }
