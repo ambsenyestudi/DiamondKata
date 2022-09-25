@@ -5,6 +5,7 @@ public class LineService
     private readonly MirroringService _mirroringService;
     private const string ALPHABETH_START = "A";
     private const string SPACE = " ";
+    private const string LINE_BREAK = "\n";
     public LineService(MirroringService mirroringService)
     {
         _mirroringService = mirroringService;
@@ -21,7 +22,7 @@ public class LineService
             result += newPosition;
 
         }
-        return result;
+        return result + LINE_BREAK;
     }
 
     private static string ToCharacter(string letter, string upTo, int index) =>
