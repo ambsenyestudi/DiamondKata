@@ -1,14 +1,17 @@
 ﻿namespace Diamonds.Domain;
 public class Diamond
 {
-    private string _letter;
+    private LineService _lineService;
+    private LetterRepository _letterRepository;
 
-    public Diamond(string letter)
+    public Diamond(LineService lineService, LetterRepository letterRepository)
     {
-        _letter = letter;
+        _lineService = lineService;
+        _letterRepository = letterRepository;
     }
 
-    public string Print()
+
+    public string Print(string letter)
     {
         throw new NotImplementedException();
     }

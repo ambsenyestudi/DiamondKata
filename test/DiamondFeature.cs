@@ -4,6 +4,9 @@ namespace Diamonds.Test;
 
 public class DiamondFeature
 {
+    public readonly Diamond _diamond = new Diamond(
+        new LineService(), new LetterRepository());
+
     [Fact]
     public void PrintsDiamondC()
     {
@@ -13,7 +16,6 @@ public class DiamondFeature
         exptected += " B B\n";
         exptected += "  A\n";
 
-        var diamond = new Diamond("C");
-        Assert.Equal(exptected, diamond.Print());
+        Assert.Equal(exptected, _diamond.Print("C"));
     }
 }
