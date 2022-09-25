@@ -15,7 +15,7 @@ public class MirroringServiceShould
     }
 
     [Theory]
-    [InlineData("A", "A\nA\n")]
+    [InlineData("   A\n, B B\n,C   C\n", "   A\n, B B\n,C   C\n, B B\n,   A\n")]
     public void MirrorLines(string inputRaw, string expected)
     {
         var input = inputRaw.Split(",").ToList();
