@@ -13,4 +13,12 @@ public class MirroringServiceShould
     {
         Assert.Equal(expected, _mirroringService.Mirror(input));
     }
+
+    [Theory]
+    [InlineData("A", "A\nA\n")]
+    public void MirrorLines(string inputRaw, string expected)
+    {
+        var input = inputRaw.Split(",").ToList();
+        Assert.Equal(expected, _mirroringService.Mirror(input));
+    }
 }

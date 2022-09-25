@@ -11,6 +11,8 @@ public class LineService
         _mirroringService = mirroringService;
     }
 
+    public string MirrorLines(List<string> lines) =>
+        _mirroringService.Mirror(lines);
 
     public string CreateLine(string letter, string upTo)
     {

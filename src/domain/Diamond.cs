@@ -13,6 +13,12 @@ public class Diamond
 
     public string Print(string letter)
     {
-        throw new NotImplementedException();
+        var letters = _letterRepository.GetUpTo(letter);
+        var lines = new List<string>();
+        for (int i = 0; i < letters.Count; i++)
+        {
+            lines.Add(_lineService.CreateLine(letters[i], letter));
+        }
+        return _lineService.MirrorLines(lines);
     }
 }
