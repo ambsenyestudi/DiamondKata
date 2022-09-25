@@ -7,7 +7,7 @@ namespace Diamonds.Test
         private readonly LineService _lineService = new LineService(new MirroringService());
 
         [Fact]
-        public void FigureLine()
+        public void CreateLine()
         {
             var input = "A";
             var expected = "A";

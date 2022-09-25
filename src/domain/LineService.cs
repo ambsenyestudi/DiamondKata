@@ -9,6 +9,6 @@ public class LineService
         _mirroringService = mirroringService;
     }
 
-    public string CreateLine(string Letter) =>
-        throw new NotImplementedException();
+    public string CreateLine(string letter) =>
+        letter;
 }
