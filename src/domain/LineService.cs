@@ -9,6 +9,7 @@ public class LineService
         _mirroringService = mirroringService;
     }
 
-    public string CreateLine(string letter) =>
+
+    public string CreateLine(string letter, string upTo) =>
         letter;
 }
