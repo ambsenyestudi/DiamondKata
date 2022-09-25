@@ -7,6 +7,6 @@
             .Select(i => (char)i+"").ToList();
 
         public List<string> GetUpTo(string letter) =>
-            throw new NotImplementedException();
+            _letters.Take(_letters.IndexOf(letter) + 1).ToList();
     }
 }
