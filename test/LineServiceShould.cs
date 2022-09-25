@@ -6,11 +6,11 @@ namespace Diamonds.Test
     {
         private readonly LineService _lineService = new LineService(new MirroringService());
 
-        [Fact]
-        public void CreateLine()
+        [Theory]
+        [InlineData("A","A")]
+        [InlineData("C", "C")]
+        public void StartLineWith(string input, string expected)
         {
-            var input = "A";
-            var expected = "A";
             Assert.Equal(expected, _lineService.CreateLine(input));
         }
     }
