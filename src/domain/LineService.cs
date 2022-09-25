@@ -22,7 +22,7 @@ public class LineService
             result += newPosition;
 
         }
-        return result + LINE_BREAK;
+        return _mirroringService.Mirror(result).TrimEnd() + LINE_BREAK;
     }
 
     private static string ToCharacter(string letter, string upTo, int index) =>
