@@ -19,7 +19,7 @@ namespace Diamonds.Test
         [InlineData("C", "C", "C")]
         public void StartLineWith(string input, string expected, string upTo)
         {
-            Assert.Equal(expected, _lineService.CreateLine(input, upTo));
+            Assert.Equal(expected, _lineService.CreateLine(input, upTo).First().ToString());
         }
     }
 }
