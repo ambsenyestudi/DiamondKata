@@ -6,10 +6,11 @@ public class MirroringServiceShould
 {
     private readonly MirroringService _mirroringService = new MirroringService();
 
-    [Fact]
-    public void Mirror()
+    [Theory]
+    [InlineData("   A   ", "   A")]
+    [InlineData("C     C", "C   ")]
+    public void Mirror(string expected, string input)
     {
-        var expected = "   A   ";
-        Assert.Equal(expected, _mirroringService.Mirror("   A"));
+        Assert.Equal(expected, _mirroringService.Mirror(input));
     }
 }
