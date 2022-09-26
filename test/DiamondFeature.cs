@@ -4,10 +4,11 @@ namespace Diamonds.Test;
 
 public class DiamondFeature
 {
+    private readonly DiamondService _diamondService = new DiamondService(new DiamondLineService(), new LetterRepository());
     [Fact]
     public void PrintDiamondC()
     {
-        var diamond = new Diamond(new List<DiamondLine>());
+        var diamond = _diamondService.Create('C');
         var expected = 
             "  A\n" +
             " B B\n" +
