@@ -12,14 +12,14 @@
 
         public override string ToString()
         {
-            var line = Compose();
+            var offset = Letter - 'A';
+            var line = Compose(offset);
             return Mirror(line, MIRROR_OFFSET) + line;
         }
 
-        private string Compose()
+        private string Compose(int offset)
         {
             string line = string.Empty;
-            var offset = Letter - 'A';
             for (int i = 0; i < Width; i++)
             {
                 line += i == offset
