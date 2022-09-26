@@ -4,6 +4,7 @@
     {
         private const int MIRROR_OFFSET = 1;
         private const string SPACE = " ";
+        private const char ALPHABETH_START = 'A';
 
         public char Letter { get; }
         public int Width { get; }
@@ -12,7 +13,7 @@
 
         public override string ToString()
         {
-            var offset = Letter - 'A';
+            var offset = Letter - ALPHABETH_START;
             var line = Compose(offset);
             return Mirror(line, MIRROR_OFFSET) + line;
         }
