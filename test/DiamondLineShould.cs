@@ -4,11 +4,13 @@ namespace Diamonds.Test
 {
     public class DiamondLineShould
     {
-        [Fact]
-        public void PrintLike()
+        [Theory]
+        [InlineData("  A  ", 'A')]
+        [InlineData(" B B ", 'B')]
+        [InlineData("C   C", 'C')]
+        public void PrintLike(string expected, char letter)
         {
-            var expected = "  A  ";
-            var line = new DiamondLine('A', 3);
+            var line = new DiamondLine(letter, 3);
             Assert.Equal(expected, line.ToString());
         }
     }
