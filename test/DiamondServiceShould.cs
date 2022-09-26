@@ -23,6 +23,15 @@ namespace Diamonds.Test
             "C   C\n" +
             " B B\n" +
             "  A\n";
+            _letterRepository.Setup(x => x.GetUpTo(letter))
+                .Returns(new List<char> { 'A', 'B', 'C' });
+            _lineService.Setup(x => x.CreateLines('C'))
+                .Returns(new List<DiamondLine> 
+                { 
+                    new DiamondLine('A', 3),
+                    new DiamondLine('B', 3),
+                    new DiamondLine('C', 3)
+                });
             var diamond = _diamondService.Create(letter);
             Assert.Equal(expected, diamond.Print());
         }

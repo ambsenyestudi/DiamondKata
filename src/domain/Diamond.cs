@@ -1,13 +1,19 @@
 ﻿namespace Diamonds.Domain;
 public class Diamond
 {
-    private readonly char _letter;
+    private readonly List<DiamondLine> _lines;
 
-    public Diamond(char letter)
+    public Diamond(List<DiamondLine> lines)
     {
-        _letter = letter;
+        _lines = lines;
     }
 
-    public string Print() =>
-        throw new NotImplementedException();
+    public string Print() 
+    {
+        var renderedLines = _lines.Select(x => x.ToString().TrimEnd());
+        renderedLines = renderedLines.Concat(renderedLines.Reverse().Skip(1)).ToList();
+        return string.Join("\n", renderedLines) + "\n";
+    }
+    
+
 }

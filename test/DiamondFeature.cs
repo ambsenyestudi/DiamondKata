@@ -7,7 +7,7 @@ public class DiamondFeature
     [Fact]
     public void PrintDiamondC()
     {
-        var diamond = new Diamond('C');
+        var diamond = new Diamond(new List<DiamondLine>());
         var expected = 
             "  A\n" +
             " B B\n" +
