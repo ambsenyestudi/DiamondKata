@@ -17,7 +17,10 @@
                     ? Letter
                     : " ";
             }
-            return new string(line.Skip(1).Reverse().ToArray()) + line;
+            return Mirror(line, 1) + line;
         }
+
+        private static string Mirror(string line, int offset) =>
+            new string(line.Skip(offset).Reverse().ToArray());
     }
 }
