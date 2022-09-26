@@ -2,6 +2,7 @@
 {
     public record DiamondLine
     {
+        private const int MIRROR_OFFSET = 1;
         public char Letter { get; }
         public int Width { get; }
 
@@ -17,7 +18,7 @@
                     ? Letter
                     : " ";
             }
-            return Mirror(line, 1) + line;
+            return Mirror(line, MIRROR_OFFSET) + line;
         }
 
         private static string Mirror(string line, int offset) =>
