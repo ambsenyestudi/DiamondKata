@@ -12,7 +12,13 @@
 
         public override string ToString()
         {
-            var line = "";
+            var line = Compose();
+            return Mirror(line, MIRROR_OFFSET) + line;
+        }
+
+        private string Compose()
+        {
+            string line = string.Empty;
             var offset = Letter - 'A';
             for (int i = 0; i < Width; i++)
             {
@@ -20,7 +26,8 @@
                     ? Letter
                     : SPACE;
             }
-            return Mirror(line, MIRROR_OFFSET) + line;
+
+            return line;
         }
 
         private static string Mirror(string line, int offset) =>
