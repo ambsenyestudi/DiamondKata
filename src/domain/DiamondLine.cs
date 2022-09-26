@@ -3,6 +3,8 @@
     public record DiamondLine
     {
         private const int MIRROR_OFFSET = 1;
+        private const string SPACE = " ";
+
         public char Letter { get; }
         public int Width { get; }
 
@@ -16,7 +18,7 @@
             {
                 line += i == offset
                     ? Letter
-                    : " ";
+                    : SPACE;
             }
             return Mirror(line, MIRROR_OFFSET) + line;
         }
