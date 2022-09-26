@@ -9,12 +9,14 @@ public class Diamond
         _lines = lines;
     }
 
-    public string Print() 
+    public string Print()
     {
-        var renderedLines = _lines.Select(x => x.ToString().TrimEnd());
-        renderedLines = renderedLines.Concat(renderedLines.Reverse().Skip(1)).ToList();
+        var upperLines = _lines.Select(x => x.ToString().TrimEnd());
+        var renderedLines = upperLines.Concat(MirrorLines(upperLines));
         return string.Join(LINE_BREAK, renderedLines) + LINE_BREAK;
     }
-    
+
+    private static IEnumerable<string> MirrorLines(IEnumerable<string> renderedLines, int offset = 1) =>
+        renderedLines.Reverse().Skip(offset);
 
 }
