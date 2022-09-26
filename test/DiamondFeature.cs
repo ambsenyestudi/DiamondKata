@@ -4,7 +4,7 @@ namespace Diamonds.Test;
 
 public class DiamondFeature
 {
-    private readonly DiamondService _diamondService = new DiamondService(new DiamondLineService(), new LetterRepository());
+    private readonly DiamondService _diamondService = new DiamondService(new DiamondLineService(new LetterRepository()));
     [Fact]
     public void PrintDiamondC()
     {

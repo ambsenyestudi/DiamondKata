@@ -6,11 +6,10 @@ namespace Diamonds.Test
     public class DiamondServiceShould
     {
         private readonly Mock<IDiamondLineService> _lineService = new Mock<IDiamondLineService>();
-        private readonly Mock<ILetterRepository> _letterRepository = new Mock<ILetterRepository>();
         private readonly DiamondService _diamondService;
         public DiamondServiceShould()
         {
-            _diamondService = new DiamondService(_lineService.Object, _letterRepository.Object);
+            _diamondService = new DiamondService(_lineService.Object);
         }
 
         [Fact]
@@ -23,8 +22,6 @@ namespace Diamonds.Test
             "C   C\n" +
             " B B\n" +
             "  A\n";
-            _letterRepository.Setup(x => x.GetUpTo(letter))
-                .Returns(new List<char> { 'A', 'B', 'C' });
             _lineService.Setup(x => x.CreateLines('C'))
                 .Returns(new List<DiamondLine> 
                 { 

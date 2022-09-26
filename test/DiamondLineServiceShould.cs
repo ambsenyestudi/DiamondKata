@@ -1,27 +1,28 @@
 ﻿using Diamonds.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Moq;
 
-namespace Diamonds.Test
+namespace Diamonds.Test;
+
+public class DiamondLineServiceShould
 {
-    public class DiamondLineServiceShould
+    private readonly Mock<ILetterRepository> _letterRepository = new Mock<ILetterRepository>();
+    private readonly DiamondLineService _lineService;
+    public DiamondLineServiceShould()
     {
-        private readonly DiamondLineService  _lineService = new DiamondLineService();
-        [Fact]
-        public void CreateLines()
+        _lineService = new DiamondLineService(_letterRepository.Object);
+    }
+    
+    [Fact]
+    public void CreateLines()
+    {
+        var input = 'B';
+        var expected =new List<string>
         {
-            var expected =new List<string>
-            {
-                "  A\n",
-               " B B\n",
-               " B B\n",
-               "  A\n"
-            };
-            var lines = _lineService.CreateLines('B');
-            Assert.Equal(expected, lines.Select(x => x.ToString()).ToList());
-        }
+            " A ",
+           "B B"
+        };
+        _letterRepository.Setup(x => x.GetUpTo(input)).Returns(new List<char> { 'A', 'B' });
+        var lines = _lineService.CreateLines('B');
+        Assert.Equal(expected, lines.Select(x => x.ToString()).ToList());
     }
 }
